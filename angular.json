@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "98ea261a-3538-4510-b13c-98aa6079dfac"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-tapi-pipes": {
+      "projectType": "library",
+      "root": "projects/ngx-tapi-pipes",
+      "sourceRoot": "projects/ngx-tapi-pipes/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-tapi-pipes/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-tapi-pipes/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-tapi-pipes/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-tapi-pipes/src/test.ts",
+            "tsConfig": "projects/ngx-tapi-pipes/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-tapi-pipes/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-tapi-pipes"
+}
